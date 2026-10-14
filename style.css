@@ -1,0 +1,215 @@
+/* Estilos generales */
+
+* {
+
+    box-sizing: border-box;
+
+}
+
+body {
+
+    font-family: Arial, sans-serif;
+
+    margin: 0;
+
+    background-color: #f29efd;
+
+    color: #333;
+
+    line-height: 1.6;
+
+}
+
+/* Cabecera */
+
+header {
+
+    background-color: #b760f1;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 35px 20px;
+
+}
+
+header h1 {
+
+    margin: 0;
+
+    font-size: 50px;
+
+}
+
+/* Menú de navegación */
+
+nav {
+
+    background-color: #1e293b;
+
+    text-align: center;
+
+    padding: 15px;
+
+}
+
+nav a {
+
+    color: white;
+
+    text-decoration: none;
+
+    margin: 0 15px;
+
+    font-weight: bold;
+
+}
+
+nav a:hover {
+
+    color: #93c5fd;
+
+}
+
+/* Contenido principal */
+
+main {
+
+    max-width: 1000px;
+
+    margin: 30px auto;
+
+    padding: 20px;
+
+}
+
+section {
+
+    margin-bottom: 40px;
+
+}
+
+h2 {
+
+    color: #ab54fd;
+
+}
+
+/* Presentación */
+
+.presentacion {
+
+    background-color: white;
+
+    text-align: center;
+
+    padding: 40px 20px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+}
+
+/* Botón */
+
+button {
+
+    background-color: #a41cff;
+
+    color: white;
+
+    border: none;
+
+    padding: 20px 40px;
+
+    border-radius: 50px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+}
+
+button:hover {
+
+    background-color: #9d63d3;
+
+}
+
+/* Tarjetas */
+
+.tarjetas {
+
+    display: flex;
+
+    gap: 50px;
+
+    flex-wrap: wrap;
+
+}
+
+.tarjeta {
+
+    flex: 1;
+
+    min-width: 200px;
+
+    background-color: white;
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+
+    transition: transform 0.3s;
+
+}
+
+.tarjeta:hover {
+
+    transform: translateY(-5px);
+
+}
+
+/* Pie de página */
+
+footer {
+
+    background-color: #1e293b;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 20px;
+
+}
+
+/* Adaptación a móviles */
+
+@media (max-width: 600px) {
+
+    header h1 {
+
+        font-size: 28px;
+
+    }
+
+    nav a {
+
+        display: inline-block;
+
+        margin: 5px 8px;
+
+    }
+
+    .tarjetas {
+
+        flex-direction: column;
+
+    }
+
+}
