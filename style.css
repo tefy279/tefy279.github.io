@@ -12,7 +12,7 @@ body {
 
     margin: 0;
 
-    background-color: #f29efd;
+    background-color: #b2f7b2;
 
     color: #333;
 
@@ -24,7 +24,7 @@ body {
 
 header {
 
-    background-color: #b760f1;
+    background-color: #47ee9b;
 
     color: white;
 
@@ -92,7 +92,7 @@ section {
 
 h2 {
 
-    color: #ab54fd;
+    color: #25ebb0;
 
 }
 
@@ -100,7 +100,7 @@ h2 {
 
 .presentacion {
 
-    background-color: white;
+    background-color: rgb(251, 255, 253);
 
     text-align: center;
 
@@ -116,25 +116,25 @@ h2 {
 
 button {
 
-    background-color: #a41cff;
+    background-color: #b6b9b7;
 
     color: white;
 
     border: none;
 
-    padding: 20px 40px;
+    padding: 12px 25px;
 
-    border-radius: 50px;
+    border-radius: 6px;
 
     cursor: pointer;
 
-    font-size: 16px;
+    font-size: 30px;
 
 }
 
 button:hover {
 
-    background-color: #9d63d3;
+    background-color: #32ee70;
 
 }
 
@@ -144,7 +144,7 @@ button:hover {
 
     display: flex;
 
-    gap: 50px;
+    gap: 20px;
 
     flex-wrap: wrap;
 
@@ -160,7 +160,7 @@ button:hover {
 
     padding: 20px;
 
-    border-radius: 10px;
+    border-radius: 40px;
 
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
 
