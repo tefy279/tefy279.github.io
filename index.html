@@ -1,115 +1,817 @@
+
 <!DOCTYPE html>
-
 <html lang="es">
-
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lucena Fitness Center. Entrena, mejora y alcanza tus objetivos en Lucena, Córdoba.">
+  <title>Lucena Fitness Center | Más que un gimnasio, es tu lugar</title>
 
-    <meta charset="UTF-8">
+  <style>
+    :root {
+      --verde: #218c55;
+      --verde-oscuro: #123d2b;
+      --verde-claro: #e8f5ec;
+      --fondo: #f7faf7;
+      --blanco: #ffffff;
+      --texto: #26352c;
+      --gris: #68746c;
+    }
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <title>Mi primera página web</title>
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
 
-    <link rel="stylesheet" href="style.css">
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
 
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .contenedor {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    /* MENÚ */
+
+    header {
+      background: var(--blanco);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px #0000000d;
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 12px 0;
+    }
+
+    .logo {
+      color: var(--verde-oscuro);
+      font-size: 1.3rem;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+
+    .logo span {
+      display: block;
+      color: var(--verde);
+      font-size: 0.78rem;
+      letter-spacing: 2px;
+      margin-top: 4px;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .menu a {
+      font-size: 0.94rem;
+      font-weight: bold;
+    }
+
+    .menu a:hover {
+      color: var(--verde);
+    }
+
+    .boton {
+      display: inline-block;
+      background: var(--verde);
+      color: white;
+      padding: 12px 23px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.2s;
+      border: 2px solid var(--verde);
+    }
+
+    .boton:hover {
+      background: var(--verde-oscuro);
+      border-color: var(--verde-oscuro);
+      transform: translateY(-2px);
+    }
+
+    .boton-secundario {
+      background: transparent;
+      border-color: white;
+      color: white;
+    }
+
+    .boton-secundario:hover {
+      background: white;
+      color: var(--verde-oscuro);
+      border-color: white;
+    }
+
+    /* PORTADA */
+
+    .hero {
+      min-height: 580px;
+      display: flex;
+      align-items: center;
+      color: white;
+      background:
+        linear-gradient(90deg, rgba(9, 35, 23, 0.88), rgba(9, 35, 23, 0.3)),
+        url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1800&q=85")
+        center 45% / cover no-repeat;
+    }
+
+    .hero-contenido {
+      max-width: 680px;
+      padding: 85px 0;
+    }
+
+    .etiqueta {
+      display: inline-block;
+      background: #ffffff20;
+      border: 1px solid #ffffff70;
+      padding: 7px 13px;
+      border-radius: 30px;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.6rem);
+      line-height: 1.08;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 span {
+      color: #80e6a6;
+    }
+
+    .hero p {
+      font-size: 1.12rem;
+      max-width: 570px;
+      margin-bottom: 30px;
+      color: #f0f5f1;
+    }
+
+    .botones {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* SECCIONES */
+
+    section {
+      padding: 78px 0;
+    }
+
+    .encabezado {
+      max-width: 680px;
+      margin: 0 auto 42px;
+      text-align: center;
+    }
+
+    .encabezado .subtitulo {
+      color: var(--verde);
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin-bottom: 9px;
+    }
+
+    .encabezado h2 {
+      color: var(--verde-oscuro);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .encabezado p {
+      color: var(--gris);
+    }
+
+    /* SERVICIOS */
+
+    .servicios {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .servicio {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 22px #153d2710;
+      transition: 0.25s;
+    }
+
+    .servicio:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px #153d271b;
+    }
+
+    .servicio img {
+      height: 205px;
+    }
+
+    .servicio-contenido {
+      padding: 23px;
+    }
+
+    .servicio h3 {
+      color: var(--verde-oscuro);
+      margin-bottom: 9px;
+      font-size: 1.15rem;
+    }
+
+    .servicio p {
+      color: var(--gris);
+      font-size: 0.95rem;
+    }
+
+    /* SOBRE NOSOTROS */
+
+    .sobre {
+      background: var(--verde-claro);
+    }
+
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .sobre-imagen {
+      height: 420px;
+      border-radius: 18px;
+      box-shadow: 15px 15px 0 #218c5525;
+    }
+
+    .sobre-texto .subtitulo {
+      color: var(--verde);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 900;
+      font-size: 0.82rem;
+    }
+
+    .sobre-texto h2 {
+      color: var(--verde-oscuro);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.2;
+      margin: 12px 0 20px;
+    }
+
+    .sobre-texto p {
+      margin-bottom: 15px;
+      color: #526057;
+    }
+
+    .lista {
+      list-style: none;
+      margin: 22px 0 28px;
+    }
+
+    .lista li {
+      margin-bottom: 11px;
+    }
+
+    .lista li::before {
+      content: "✓";
+      color: var(--verde);
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    /* TARIFAS */
+
+    .tarifas {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .tarifa {
+      background: white;
+      border: 1px solid #e0e9e1;
+      border-radius: 16px;
+      padding: 30px 25px;
+      text-align: center;
+      box-shadow: 0 5px 20px #153d270c;
+    }
+
+    .tarifa.destacada {
+      border: 2px solid var(--verde);
+      box-shadow: 0 10px 30px #218c551a;
+    }
+
+    .tarifa h3 {
+      color: var(--verde-oscuro);
+      font-size: 1.3rem;
+    }
+
+    .precio {
+      color: var(--verde);
+      font-size: 2.8rem;
+      font-weight: 900;
+      margin: 15px 0 3px;
+    }
+
+    .precio small {
+      font-size: 1rem;
+      font-weight: normal;
+    }
+
+    .tarifa > p {
+      color: var(--gris);
+      font-size: 0.93rem;
+      margin-bottom: 22px;
+    }
+
+    .tarifa ul {
+      list-style: none;
+      text-align: left;
+      margin: 22px 0;
+    }
+
+    .tarifa li {
+      padding: 8px 0;
+      border-bottom: 1px solid #edf1ed;
+    }
+
+    .tarifa li::before {
+      content: "✓ ";
+      color: var(--verde);
+      font-weight: bold;
+    }
+
+    .nota-precios {
+      margin-top: 24px;
+      text-align: center;
+      color: var(--gris);
+      font-size: 0.86rem;
+    }
+
+    /* CONTACTO */
+
+    .contacto {
+      background: var(--verde-oscuro);
+      color: white;
+    }
+
+    .contacto .encabezado h2 {
+      color: white;
+    }
+
+    .contacto .encabezado p {
+      color: #d2e2d6;
+    }
+
+    .contacto-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .contacto-item {
+      text-align: center;
+      background: #ffffff0d;
+      border: 1px solid #ffffff25;
+      padding: 25px 18px;
+      border-radius: 13px;
+    }
+
+    .contacto-item h3 {
+      margin-bottom: 8px;
+      color: #80e6a6;
+    }
+
+    .contacto-item p {
+      color: #e2eee5;
+    }
+
+    .aviso {
+      margin-top: 30px;
+      padding: 15px;
+      border-radius: 8px;
+      background: #ffffff10;
+      color: #d2e2d6;
+      text-align: center;
+      font-size: 0.88rem;
+    }
+
+    /* PIE DE PÁGINA */
+
+    footer {
+      background: #0b2b1d;
+      color: #d2e2d6;
+      text-align: center;
+      padding: 25px 15px;
+      font-size: 0.9rem;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    /* MÓVILES */
+
+    @media (max-width: 850px) {
+      .servicios {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .sobre-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .sobre-imagen {
+        height: 320px;
+      }
+
+      .tarifas {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: auto;
+      }
+
+      .contacto-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .menu {
+        justify-content: center;
+        gap: 15px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .servicios {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 500px;
+      }
+
+      .hero-contenido {
+        padding: 65px 0;
+      }
+
+      section {
+        padding: 58px 0;
+      }
+
+      .menu {
+        gap: 12px;
+      }
+
+      .menu a {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <header>
+  <!-- MENÚ PRINCIPAL -->
+  <header>
+    <nav class="contenedor">
+      <a class="logo" href="#inicio">
+        LUCENA FITNESS CENTER
+        <span>FUERZA · SALUD · BIENESTAR</span>
+      </a>
 
-        <h1> 2ª GD CFGB Informática de Oficina </h1>
-
-        <p>Aprendiendo HTML y CSS</p>
-
-    </header>
-
-    <nav>
-
+      <div class="menu">
         <a href="#inicio">Inicio</a>
-
-        <a href="#módulos del curso">módulos del curso </a>
-
+        <a href="#servicios">Servicios</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#tarifas">Tarifas</a>
         <a href="#contacto">Contacto</a>
-
+      </div>
     </nav>
+  </header>
 
-    <main>
+  <main>
 
-        <section id="inicio" class="presentacion">
-<img src="images 1.jpg" alt="100">
-            <h2>¡Bienvenido a mi web!</h2>
+    <!-- PORTADA -->
+    <section class="hero" id="inicio">
+      <div class="contenedor">
+        <div class="hero-contenido">
+          <span class="etiqueta">Tu espacio para superarte</span>
 
-            <p>Estoy aprendiendo a crear páginas web con HTML y CSS.</p>
+          <h1>
+            Más que un gimnasio,<br>
+            <span>es tu lugar.</span>
+          </h1>
 
-            <a href="https://sites.google.com/d/1W7KDWjy44JAJEKh0E1Z96qsDwPkfpes2/p/1TZeLYw8kqqBOoUT8R9qAznNSHwycuh3a/edit"> <button><p>Descubrir más</p></button></a>
+          <p>
+            Empieza a construir tu mejor versión en Lucena Fitness Center.
+            Entrena a tu ritmo, mejora tus hábitos y avanza hacia tus objetivos
+            en un ambiente motivador.
+          </p>
 
-        </section>
+          <div class="botones">
+            <a class="boton" href="#tarifas">Ver tarifas</a>
+            <a class="boton boton-secundario" href="#servicios">
+              Descubrir servicios
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <section id="módulos del curso">
+    <!-- SERVICIOS -->
+    <section id="servicios">
+      <div class="contenedor">
+        <div class="encabezado">
+          <p class="subtitulo">Todo para tu entrenamiento</p>
+          <h2>Nuestros servicios</h2>
+          <p>
+            Diferentes opciones para que puedas entrenar, mejorar y disfrutar
+            de tu experiencia fitness.
+          </p>
+        </div>
 
-            <h2>modulos del curso</h2>
+        <div class="servicios">
 
-            <div class="tarjetas">
-
-                <article class="tarjeta">
-
-                    <h3>Redes</h3>
-
-                    <p>Introduce los conceptos básicos para conectar ordenadores y dispositivos en una red.</p>
-
-                </article>
-                <article class="tarjeta">
-
-                    <h3>Ofimatica de oficina</h3>
-
-                    <p>Enseña el uso práctico de programas de oficina para crear, editar y gestionar documentos.</p>
-
-                </article>
-                <article class="tarjeta">
-
-                    <h3>Proyecto intermodular </h3>
-
-                    <p> Es un módulo integrador donde aplicas de manera conjunta los conocimientos aprendidos en las demás asignaturas del ciclo mediante la resolución de un proyecto o reto práctico.</p>
-
-                </article>
-
-                <article class="tarjeta">
-
-                    <h3>ciencias aplicadas 1</h3>
-
-                    <p>Es la parte de formación general de ciencias adaptada a un entorno técnico o profesional.</p>
-
-                </article>
-
-                <article class="tarjeta">
-
-                    <h3>comunicacion y ciencias sociales</h3>
-
-                    <p> Busca mejorar las habilidades de expresión, comprensión y el entendimiento del entorno social y laboral.</p>
-
-                </article>
-
+          <article class="servicio">
+            <img
+              src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=900&q=80"
+              alt="Entrenamiento de fuerza con pesas"
+              loading="lazy">
+            <div class="servicio-contenido">
+              <h3>Musculación y fuerza</h3>
+              <p>
+                Entrena con pesas y trabaja los principales grupos musculares
+                para mejorar tu fuerza y condición física.
+              </p>
             </div>
+          </article>
 
-        </section>
+          <article class="servicio">
+            <img
+              src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=900&q=80"
+              alt="Entrenamiento cardiovascular"
+              loading="lazy">
+            <div class="servicio-contenido">
+              <h3>Zona de cardio</h3>
+              <p>
+                Una opción para caminar, correr, pedalear y trabajar
+                tu resistencia cardiovascular.
+              </p>
+            </div>
+          </article>
 
-        <section id="contacto">
+          <article class="servicio">
+            <img
+              src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80"
+              alt="Actividad física en grupo"
+              loading="lazy">
+            <div class="servicio-contenido">
+              <h3>Clases colectivas</h3>
+              <p>
+                Actividades en grupo para entrenar con energía,
+                aprender y mantener la motivación.
+              </p>
+            </div>
+          </article>
 
-            <h2>Contacto</h2>
+          <article class="servicio">
+            <img
+              src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=900&q=80"
+              alt="Entrenamiento personal"
+              loading="lazy">
+            <div class="servicio-contenido">
+              <h3>Entrenamiento personal</h3>
+              <p>
+                Sesiones individuales adaptadas a tus objetivos,
+                tu experiencia y tu ritmo de entrenamiento.
+              </p>
+            </div>
+          </article>
 
-            <p>Correo:spingon279@g.educaand.es</p>
+          <article class="servicio">
+            <img
+              src="https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=900&q=80"
+              alt="Preparación de una rutina de entrenamiento"
+              loading="lazy">
+            <div class="servicio-contenido">
+              <h3>Orientación inicial</h3>
+              <p>
+                Una primera orientación para conocer el espacio,
+                resolver dudas y empezar con una rutina adecuada.
+              </p>
+            </div>
+          </article>
 
-        </section>
+          <article class="servicio">
+            <img
+              src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=80"
+              alt="Espacio de entrenamiento de gimnasio"
+              loading="lazy">
+            <div class="servicio-contenido">
+              <h3>Comodidad y atención</h3>
+              <p>
+                Propuesta de vestuarios, taquillas, atención básica en sala
+                y opciones de acceso para visitas de un día.
+              </p>
+            </div>
+          </article>
 
-    </main>
+        </div>
+      </div>
+    </section>
 
-    <footer>
+    <!-- SOBRE NOSOTROS -->
+    <section class="sobre" id="nosotros">
+      <div class="contenedor sobre-grid">
 
-        <p>© 2026 Mi primera página web</p>
+        <img
+          class="sobre-imagen"
+          src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?auto=format&fit=crop&w=1200&q=85"
+          alt="Persona entrenando en un gimnasio"
+          loading="lazy">
 
-    </footer>
+        <div class="sobre-texto">
+          <p class="subtitulo">Nuestra filosofía</p>
+
+          <h2>Un lugar para crecer a tu ritmo</h2>
+
+          <p>
+            En Lucena Fitness Center creemos que entrenar es mucho más
+            que levantar pesas. Se trata de crear hábitos, ganar confianza
+            y dedicar tiempo a tu bienestar.
+          </p>
+
+          <p>
+            Nuestra propuesta es ofrecer un ambiente cercano y motivador
+            en el que cada persona pueda trabajar para alcanzar sus metas.
+          </p>
+
+          <ul class="lista">
+            <li>Entrenamientos adaptados a diferentes niveles.</li>
+            <li>Opciones para mejorar fuerza y resistencia.</li>
+            <li>Orientación para comenzar con confianza.</li>
+            <li>Una filosofía basada en la constancia y el bienestar.</li>
+          </ul>
+
+          <a class="boton" href="#contacto">Más información</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TARIFAS -->
+    <section id="tarifas">
+      <div class="contenedor">
+        <div class="encabezado">
+          <p class="subtitulo">Elige tu opción</p>
+          <h2>Tarifas propuestas</h2>
+          <p>
+            Diferentes opciones para adaptarse a tus necesidades
+            y a tu forma de entrenar.
+          </p>
+        </div>
+
+        <div class="tarifas">
+
+          <article class="tarifa destacada">
+            <h3>Cuota mensual</h3>
+            <div class="precio">35€ <small>/ mes</small></div>
+            <p>Para entrenar con regularidad.</p>
+
+            <ul>
+              <li>Acceso mensual al gimnasio</li>
+              <li>Zona de musculación y cardio</li>
+              <li>Orientación inicial propuesta</li>
+            </ul>
+
+            <a class="boton" href="#contacto">Solicitar información</a>
+          </article>
+
+          <article class="tarifa">
+            <h3>Pase de día</h3>
+            <div class="precio">9€ <small>/ día</small></div>
+            <p>Para quienes quieren probar o entrenar ocasionalmente.</p>
+
+            <ul>
+              <li>Acceso durante un día</li>
+              <li>Uso de las zonas disponibles</li>
+              <li>Ideal para visitas puntuales</li>
+            </ul>
+
+            <a class="boton" href="#contacto">Solicitar información</a>
+          </article>
+
+          <article class="tarifa">
+            <h3>Entrenamiento personal</h3>
+            <div class="precio">20€ <small>/ sesión</small></div>
+            <p>Atención individual para trabajar tus objetivos.</p>
+
+            <ul>
+              <li>Sesión individual propuesta</li>
+              <li>Orientación personalizada</li>
+              <li>Bono de 4 sesiones por 72€</li>
+            </ul>
+
+            <a class="boton" href="#contacto">Solicitar información</a>
+          </article>
+
+        </div>
+
+        <p class="nota-precios">
+          Nota: los precios y servicios mostrados son orientativos y forman
+          parte de una propuesta para el proyecto. Deben confirmarse antes
+          de ofrecerlos al público.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="contacto" id="contacto">
+      <div class="contenedor">
+        <div class="encabezado">
+          <p class="subtitulo">Estamos aquí para ayudarte</p>
+          <h2>Empieza hoy tu camino</h2>
+          <p>
+            ¿Quieres conocer más sobre el gimnasio y sus opciones
+            de entrenamiento? Ponte en contacto con nosotros.
+          </p>
+        </div>
+
+        <div class="contacto-grid">
+
+          <div class="contacto-item">
+            <h3>Ubicación</h3>
+            <p>Lucena, Córdoba</p>
+            <p>Dirección pendiente de confirmar</p>
+          </div>
+
+          <div class="contacto-item">
+            <h3>Teléfono</h3>
+            <p>Datos de contacto pendientes de añadir</p>
+          </div>
+
+          <div class="contacto-item">
+            <h3>Horario</h3>
+            <p>Horario pendiente de confirmar</p>
+          </div>
+
+        </div>
+
+        <div class="aviso">
+          Las imágenes son ilustrativas. Las instalaciones, los servicios,
+          los horarios y los datos de contacto deben confirmarse antes
+          de presentar la web como un negocio real.
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    <p>
+      <strong>Lucena Fitness Center</strong> ·
+      Más que un gimnasio, es tu lugar.
+    </p>
+    <p>Proyecto web · Lucena, Córdoba</p>
+  </footer>
 
 </body>
-
 </html>
